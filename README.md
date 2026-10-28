@@ -32,9 +32,11 @@ separately in [VALIDATION.md](VALIDATION.md).
 Use Python 3.12 through 3.14 and a dedicated virtual environment. Python 3.12
 is the validated version. Dependencies require a network connection during setup.
 
-From this repository's root, with [uv](https://docs.astral.sh/uv/):
+Clone the source, then install with [uv](https://docs.astral.sh/uv/):
 
 ```powershell
+git clone https://github.com/LautrecSec/skillsentry-foss.git
+cd skillsentry-foss
 uv sync --locked --all-extras
 uv run --no-sync skillsentry --version
 uv run --no-sync skillsentry scan ./examples/benign

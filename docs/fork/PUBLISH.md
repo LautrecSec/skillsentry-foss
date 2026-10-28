@@ -1,8 +1,8 @@
 # Publish to GitHub
 
-The local deliverable is ready to review and initialize as an independent
-repository. No GitHub repository or public release is created by these files.
-Publish from this project's root, not from its parent NVIDIA checkout.
+Project repository: [LautrecSec/skillsentry-foss](https://github.com/LautrecSec/skillsentry-foss).
+This guide covers source verification, publication, and release creation.
+Run publication commands from this project's root, not from its parent checkout.
 
 ## 1. Verify what will be published
 
@@ -47,11 +47,12 @@ inherited file. Attribution in the repository remains necessary.
 
 ## 3. Create your public repository
 
-With an authenticated [GitHub CLI](https://cli.github.com/):
+For a new copy under your own account, use an authenticated
+[GitHub CLI](https://cli.github.com/):
 
 ```bash
 gh auth status
-gh repo create skillsentry-foss --public --source . --remote origin --push --description "Attributed NVIDIA SkillSpector fork with static-first scanning and reproducible verification"
+gh repo create skillsentry-foss --public --source . --remote origin --push --description "Security scanning for AI agent skills with static analysis by default, optional semantic analysis, and reproducible verification."
 ```
 
 This command publishes to the authenticated account. It is intended to be run
@@ -62,11 +63,21 @@ choose another name and update your project links after creation.
 Alternatively, create an empty public repository through GitHub's New repository
 page without generating README, license, or gitignore files. Add its displayed
 remote URL as `origin` and use GitHub's displayed command to push `main`.
-The generated repository URL depends on your account; no URL is invented here.
+If the repository already exists, verify `git remote -v` before pushing.
+
+GitHub OAuth credentials need the `workflow` scope to push this project's
+`.github/workflows/ci.yml`. If GitHub rejects the push for that missing scope:
+
+```bash
+gh auth refresh --hostname github.com --scopes workflow
+git push --set-upstream origin main
+```
+
+Review and authorize the additional permission in your browser before retrying.
 
 ## 4. Set repository presentation and security
 
-1. Keep the attribution sentence near the top of the README.
+1. Keep the README's license and source-credit links, attribution files, and source headers.
 2. Use topics such as `ai-security`, `agent-skills`, `security-scanner`,
    `static-analysis`, `mcp`, and `red-teaming` when they fit your presentation.
 3. Enable GitHub Actions. Wait for the fork CI results before claiming CI passes.

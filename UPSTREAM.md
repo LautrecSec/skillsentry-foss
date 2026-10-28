@@ -45,7 +45,7 @@ All other inherited files must match [upstream-manifest.json](upstream-manifest.
 | `README.md` | Standalone Skill Sentry usage and project documentation; preserve original manual separately |
 | `CONTRIBUTING.md` | Document this fork's contribution and verification process |
 | `SECURITY.md` | Separate fork reporting from NVIDIA's upstream security process |
-| `pyproject.toml` | Fork description/version, extra executable, license files, wheel package, labeled upstream links |
+| `pyproject.toml` | Fork description/version, extra executable, license files, wheel package, project links, and labeled upstream links |
 | `uv.lock` | Change only the local project version; retain external dependency pins |
 | `Dockerfile` | Include license notices and use the static-first executable |
 | `.env.example` | Explain CLI opt-in and that shell variables must be set explicitly |

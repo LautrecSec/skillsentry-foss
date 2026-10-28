@@ -83,6 +83,9 @@ skillsentry = "skillsentry_foss.cli:main"
 # for a simpler single-command installation without cloning.
 
 [project.urls]
+"Source" = "https://github.com/LautrecSec/skillsentry-foss"
+"Documentation" = "https://github.com/LautrecSec/skillsentry-foss#readme"
+"Issues" = "https://github.com/LautrecSec/skillsentry-foss/issues"
 "Upstream source" = "https://github.com/NVIDIA/skillspector"
 "Upstream documentation" = "https://github.com/NVIDIA/skillspector#readme"
 

@@ -126,8 +126,9 @@ archives, container contexts, and Git publication.
 - MCP stdio was exercised; HTTP transport was not started for an end-to-end test.
 - The Docker engine was unavailable, so the image was not built or run here.
 - Python 3.13, Python 3.14, and macOS were not exercised.
-- No GitHub repository, release, workflow run, private reporting channel, or PyPI
-  package was published or configured.
+- GitHub repository destination: [LautrecSec/skillsentry-foss](https://github.com/LautrecSec/skillsentry-foss).
+  GitHub Actions results are separate from the local validation evidence above.
+- No GitHub release, private reporting channel, or PyPI package was published or configured.
 - No trademark availability assessment was performed for the working project name.
 
 Source and interface parity apply to the pinned upstream commit. They do not
