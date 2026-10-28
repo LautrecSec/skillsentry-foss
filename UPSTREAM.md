@@ -26,7 +26,7 @@ license, and third-party notices are retained. New code is Apache-2.0 as well.
 
 The fork contributes the `skillsentry_foss` entry point, provenance verifier,
 fork-specific tests, inert examples, a reproducible demonstration, and fork
-documentation and CI. The README states this relationship directly. No NVIDIA
+documentation and CI. The README links to these source credits and notices. No NVIDIA
 endorsement, Verified Skills pipeline access, catalog publication, research
 result, model-quality parity, or production deployment is claimed by the fork.
 
@@ -42,7 +42,7 @@ All other inherited files must match [upstream-manifest.json](upstream-manifest.
 
 | Path | Modification |
 | --- | --- |
-| `README.md` | Prepend fork identity, setup, attribution, and navigation; retain original manual |
+| `README.md` | Standalone Skill Sentry usage and project documentation; preserve original manual separately |
 | `CONTRIBUTING.md` | Document this fork's contribution and verification process |
 | `SECURITY.md` | Separate fork reporting from NVIDIA's upstream security process |
 | `pyproject.toml` | Fork description/version, extra executable, license files, wheel package, labeled upstream links |

@@ -1,6 +1,6 @@
 {
   "README.md": {
-    "reason": "Fork overview and navigation; original manual retained.",
+    "reason": "Standalone Skill Sentry usage, security, and project documentation; original manual preserved separately.",
     "preserved_as": "README.upstream.md"
   },
   "CONTRIBUTING.md": {
