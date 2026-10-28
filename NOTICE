@@ -1,0 +1,20 @@
+SkillSentry FOSS
+
+This distribution derives from NVIDIA SkillSpector:
+https://github.com/NVIDIA/SkillSpector
+Upstream version: 2.12.0
+Upstream commit: e7172462caf367736645f66c1aa154ca5f9c64dc
+
+Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+Upstream code is licensed under the Apache License, Version 2.0.
+Existing copyright and third-party notices are retained.
+
+SkillSentry FOSS adds a static-first CLI, provenance verification, fork tests,
+demonstration material, and independent project documentation and CI.
+The upstream scanner implementation is retained without modification.
+The Python distribution name skillspector, import paths, rule identifiers,
+report identities, and compatibility command are retained for interoperability.
+
+SkillSentry FOSS is independent and is not an NVIDIA product or endorsement.
+The Apache license does not grant rights to NVIDIA trademarks.
+See UPSTREAM.md for provenance and the complete list of modified files.

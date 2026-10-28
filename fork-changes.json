@@ -1,0 +1,52 @@
+{
+  "README.md": {
+    "reason": "Fork overview and navigation; original manual retained.",
+    "preserved_as": "README.upstream.md"
+  },
+  "CONTRIBUTING.md": {
+    "reason": "Independent contribution and verification process.",
+    "preserved_as": "CONTRIBUTING.upstream.md"
+  },
+  "SECURITY.md": {
+    "reason": "Independent security reporting policy.",
+    "preserved_as": "SECURITY.upstream.md"
+  },
+  "pyproject.toml": {
+    "reason": "Fork metadata, version, executable, license files, and wheel package."
+  },
+  "uv.lock": {
+    "reason": "Local fork version only; external dependency pins retained."
+  },
+  "Dockerfile": {
+    "reason": "Include license files and select static-first entry point."
+  },
+  ".env.example": {
+    "reason": "Document fork opt-in and environment loading."
+  },
+  ".gitignore": {
+    "reason": "Ignore caches and generated demonstration artifacts."
+  },
+  ".github/workflows/ci.yml": {
+    "reason": "Independent fork CI replaces active NVIDIA project automation.",
+    "preserved_as": "docs/upstream/workflows/ci.yml"
+  },
+  ".github/workflows/release.yml": {
+    "reason": "Independent fork CI replaces active NVIDIA project automation.",
+    "preserved_as": "docs/upstream/workflows/release.yml"
+  },
+  ".github/workflows/scorecard.yml": {
+    "reason": "Independent fork CI replaces active NVIDIA project automation.",
+    "preserved_as": "docs/upstream/workflows/scorecard.yml"
+  },
+  ".github/workflows/update-pr-branches.yml": {
+    "reason": "Independent fork CI replaces active NVIDIA project automation.",
+    "preserved_as": "docs/upstream/workflows/update-pr-branches.yml"
+  },
+  ".dockerignore": {
+    "reason": "Exclude fork caches and generated artifacts from Docker context."
+  },
+  "tests/unit/test_github_release_workflow.py": {
+    "reason": "Point upstream release-workflow contract tests at the archived original.",
+    "preserved_as": "docs/upstream/test_github_release_workflow.py"
+  }
+}

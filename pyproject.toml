@@ -1,0 +1,125 @@
+# SkillSentry FOSS modification (2026-10-28): fork version, entry point, notices, and wheel package.
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "skillspector"
+version = "2.12.0+skillsentry.1"
+description = "SkillSentry FOSS: an attributed NVIDIA SkillSpector fork with static-first scanning, optional semantic analysis, and compatible CLI, Python, MCP, and report interfaces."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md"]
+requires-python = ">=3.12,<3.15"
+keywords = [
+    "security",
+    "ai-agents",
+    "vulnerability-scanner",
+    "claude-code",
+    "skills",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    # Typer <0.24 uses click>=8.0.0; 0.24+ requires click>=8.2.1 which conflicts with semgrep (click 8.1.x)
+    "typer>=0.23.0,<0.24",
+    "rich>=14.3.0",
+    "httpx>=0.28.0",
+    "pywhatwgurl==0.1.1",
+    "regex==2026.5.9",
+    "packaging>=24.0",
+    "pyyaml>=6.0.1",
+    "pydantic>=2.12.0",
+    "openai>=2.25.0",
+    "langgraph>=1.0.10",
+    "langchain-anthropic>=1.4.5",
+    "langchain-aws>=0.2.0",
+    "langchain-core>=1.2.17",
+    "langchain-openai>=1.1.10",
+    "boto3>=1.34.0",
+    "langsmith>=0.7.30",
+    "yara-python>=4.5.0",
+    "google-auth[requests]>=2.53.0",
+]
+
+[project.optional-dependencies]
+mcp = [
+    "mcp>=1.29.0,<2.0.0",
+]
+langgraph-dev = [
+    "langgraph-cli[inmem]>=0.4.14",
+]
+dev = [
+    "skillspector[mcp]",
+    "skillspector[langgraph-dev]",
+    "pytest>=9.0.0",
+    "pytest-asyncio>=1.3.0",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.15.0",
+    "mypy>=1.19.0",
+    "build>=1.4.0",
+    "hatchling>=1.31.0",
+    "twine>=6.2.0",
+    "poetry>=2.3.0",
+]
+
+[project.scripts]
+skillspector = "skillspector.cli:app"
+skillsentry = "skillsentry_foss.cli:main"
+
+[tool.uv]
+# Enable `uv tool install git+https://github.com/NVIDIA/skillspector.git`
+# for a simpler single-command installation without cloning.
+
+[project.urls]
+"Upstream source" = "https://github.com/NVIDIA/skillspector"
+"Upstream documentation" = "https://github.com/NVIDIA/skillspector#readme"
+
+[tool.hatch.build]
+exclude = [".claude/", ".cursor/", ".agents/", "/.venv*", "/.uv-cache", "/artifacts", "/.pytest_cache", "/.ruff_cache"]
+
+[tool.hatch.build.targets.sdist]
+core-metadata-version = "2.4"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/skillspector", "src/skillsentry_foss"]
+core-metadata-version = "2.4"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+source = ["src/skillspector"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "integration: end-to-end tests that invoke the full graph (may call LLMs)",
+    "provider: live OpenAI/Anthropic/NVIDIA Build provider endpoint tests",
+]
+addopts = "-m 'not integration and not provider'"
