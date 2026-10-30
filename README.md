@@ -3,8 +3,6 @@
 Security scanning for AI agent skills. Inspect a skill before installation,
 review its findings, and apply the same checks in an agent workflow or CI.
 
-Maintained by [LautrecSec](https://github.com/LautrecSec).
-
 Skill Sentry uses static analysis by default. No GPU, API key, or paid service
 is required for static scans. Local or hosted semantic analysis is available
 through an explicit `--llm` option.
